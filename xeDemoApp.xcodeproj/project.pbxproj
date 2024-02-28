@@ -16,6 +16,8 @@
 		50E844FC2B8F580B004AE31A /* xeDemoAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E844FB2B8F580B004AE31A /* xeDemoAppUITestsLaunchTests.swift */; };
 		50E8450A2B8F6839004AE31A /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E845092B8F6839004AE31A /* CustomButtonView.swift */; };
 		50E8450C2B8F68D8004AE31A /* CustomSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8450B2B8F68D8004AE31A /* CustomSubView.swift */; };
+		50E8450F2B8F7021004AE31A /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8450E2B8F7021004AE31A /* APIClient.swift */; };
+		50E845132B8F7581004AE31A /* EndpointProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E845122B8F7581004AE31A /* EndpointProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		50E844FB2B8F580B004AE31A /* xeDemoAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xeDemoAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		50E845092B8F6839004AE31A /* CustomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
 		50E8450B2B8F68D8004AE31A /* CustomSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubView.swift; sourceTree = "<group>"; };
+		50E8450E2B8F7021004AE31A /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		50E845122B8F7581004AE31A /* EndpointProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 		50E844DD2B8F580A004AE31A /* xeDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				50E8450D2B8F6FF4004AE31A /* Networking */,
 				50E845082B8F6810004AE31A /* Views */,
 				50E844DE2B8F580A004AE31A /* xeDemoAppApp.swift */,
 				50E844E22B8F580B004AE31A /* Assets.xcassets */,
@@ -139,6 +144,15 @@
 				50E8450B2B8F68D8004AE31A /* CustomSubView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		50E8450D2B8F6FF4004AE31A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				50E8450E2B8F7021004AE31A /* APIClient.swift */,
+				50E845122B8F7581004AE31A /* EndpointProvider.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,8 +286,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				50E8450A2B8F6839004AE31A /* CustomButtonView.swift in Sources */,
+				50E845132B8F7581004AE31A /* EndpointProvider.swift in Sources */,
 				50E844E12B8F580A004AE31A /* ContentView.swift in Sources */,
 				50E8450C2B8F68D8004AE31A /* CustomSubView.swift in Sources */,
+				50E8450F2B8F7021004AE31A /* APIClient.swift in Sources */,
 				50E844DF2B8F580A004AE31A /* xeDemoAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
