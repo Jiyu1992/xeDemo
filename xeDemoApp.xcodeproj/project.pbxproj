@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		500EAA7F2B8FA901000192B1 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500EAA7E2B8FA901000192B1 /* LocationModel.swift */; };
+		500EAA812B8FA9D8000192B1 /* CacheObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500EAA802B8FA9D8000192B1 /* CacheObject.swift */; };
+		500EAA832B8FAC1F000192B1 /* NSCache+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500EAA822B8FAC1F000192B1 /* NSCache+Subscript.swift */; };
 		50E844DF2B8F580A004AE31A /* xeDemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E844DE2B8F580A004AE31A /* xeDemoAppApp.swift */; };
 		50E844E12B8F580A004AE31A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E844E02B8F580A004AE31A /* ContentView.swift */; };
 		50E844E32B8F580B004AE31A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50E844E22B8F580B004AE31A /* Assets.xcassets */; };
@@ -38,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		500EAA7E2B8FA901000192B1 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		500EAA802B8FA9D8000192B1 /* CacheObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheObject.swift; sourceTree = "<group>"; };
+		500EAA822B8FAC1F000192B1 /* NSCache+Subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCache+Subscript.swift"; sourceTree = "<group>"; };
 		50E844DB2B8F580A004AE31A /* xeDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xeDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E844DE2B8F580A004AE31A /* xeDemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xeDemoAppApp.swift; sourceTree = "<group>"; };
 		50E844E02B8F580A004AE31A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,6 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		500EAA7D2B8FA879000192B1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				500EAA7E2B8FA901000192B1 /* LocationModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		50E844D22B8F580A004AE31A = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +116,7 @@
 		50E844DD2B8F580A004AE31A /* xeDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				500EAA7D2B8FA879000192B1 /* Models */,
 				50E8450D2B8F6FF4004AE31A /* Networking */,
 				50E845082B8F6810004AE31A /* Views */,
 				50E844DE2B8F580A004AE31A /* xeDemoAppApp.swift */,
@@ -151,6 +166,8 @@
 			children = (
 				50E8450E2B8F7021004AE31A /* APIClient.swift */,
 				50E845122B8F7581004AE31A /* EndpointProvider.swift */,
+				500EAA802B8FA9D8000192B1 /* CacheObject.swift */,
+				500EAA822B8FAC1F000192B1 /* NSCache+Subscript.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -288,9 +305,12 @@
 				50E8450A2B8F6839004AE31A /* CustomButtonView.swift in Sources */,
 				50E845132B8F7581004AE31A /* EndpointProvider.swift in Sources */,
 				50E844E12B8F580A004AE31A /* ContentView.swift in Sources */,
+				500EAA832B8FAC1F000192B1 /* NSCache+Subscript.swift in Sources */,
 				50E8450C2B8F68D8004AE31A /* CustomSubView.swift in Sources */,
 				50E8450F2B8F7021004AE31A /* APIClient.swift in Sources */,
+				500EAA7F2B8FA901000192B1 /* LocationModel.swift in Sources */,
 				50E844DF2B8F580A004AE31A /* xeDemoAppApp.swift in Sources */,
+				500EAA812B8FA9D8000192B1 /* CacheObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
