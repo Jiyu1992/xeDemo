@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct xeDemoAppApp: App {
+    @StateObject private var locationProvider = LocationsProvider()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(locationProvider: locationProvider)
+                .environmentObject(locationProvider)
         }
     }
 }

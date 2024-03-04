@@ -13,6 +13,6 @@ final class CacheObject {
 }
 
 enum CacheEntry {
-    case inProgress(Task<LocationModel, Error>)
-    case ready(LocationModel)
+    case inProgress(Task<[LocationModel], Error>)
+    case ready([LocationModel])
 }

@@ -10,16 +10,16 @@ import SwiftUI
 struct CustomSubView: View {
     var title: String
     var placeholder: String
-    @State var searchString: String = ""
+    @Binding var textFieldString: String
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             Text(title)
                 .font(.title)
-            TextField(placeholder, text: $searchString, axis: .vertical)
+
+            TextField(placeholder, text: $textFieldString)
                 .padding()
                 .background(Color(uiColor: .lightGray))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                
         }
     }
 }

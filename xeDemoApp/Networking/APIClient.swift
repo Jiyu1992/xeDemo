@@ -12,6 +12,7 @@ protocol ApiProtocol {
 }
 
 final class ApiClient: ApiProtocol {
+    private let locationCache: NSCache<NSString, CacheObject> = NSCache()
     var session: URLSession {
         let configuration = URLSessionConfiguration.default
         configuration.waitsForConnectivity = true
@@ -40,6 +41,32 @@ final class ApiClient: ApiProtocol {
             }
         default:
             return nil
+        }
+    }
+    
+    func getLocations(for query: String) async throws -> [LocationModel]? {
+        let endpoint = Endpoints.getLocations(query: query)
+        guard let url = endpoint.asURL() else { return [] }
+        if let cached = locationCache[url] {
+            switch cached {
+            case .ready(let locations):
+                return locations
+            case .inProgress(let task):
+                return try await task.value
+            }
+        }
+        let task = Task<[LocationModel], Error> {
+            let locations = try await makeRequest(endpoint: endpoint, responseModel: [LocationModel].self)
+            return locations ?? []
+        }
+        locationCache[url] = .inProgress(task)
+        do {
+            let locations = try await task.value
+            locationCache[url] = .ready(locations)
+            return locations
+        } catch {
+            locationCache[url] = nil
+            throw error
         }
     }
 }
