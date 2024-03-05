@@ -12,6 +12,7 @@
 		500EAA832B8FAC1F000192B1 /* NSCache+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500EAA822B8FAC1F000192B1 /* NSCache+Subscript.swift */; };
 		500EAA852B8FBCAD000192B1 /* LocationsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500EAA842B8FBCAD000192B1 /* LocationsProvider.swift */; };
 		50741D5E2B9602C7001BBFC0 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50741D5D2B9602C7001BBFC0 /* FormData.swift */; };
+		50A287562B973F6A004C9B13 /* StubData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A287552B973F6A004C9B13 /* StubData.swift */; };
 		50E844DF2B8F580A004AE31A /* xeDemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E844DE2B8F580A004AE31A /* xeDemoAppApp.swift */; };
 		50E844E12B8F580A004AE31A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E844E02B8F580A004AE31A /* ContentView.swift */; };
 		50E844E32B8F580B004AE31A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50E844E22B8F580B004AE31A /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		500EAA822B8FAC1F000192B1 /* NSCache+Subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCache+Subscript.swift"; sourceTree = "<group>"; };
 		500EAA842B8FBCAD000192B1 /* LocationsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsProvider.swift; sourceTree = "<group>"; };
 		50741D5D2B9602C7001BBFC0 /* FormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
+		50A287552B973F6A004C9B13 /* StubData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubData.swift; sourceTree = "<group>"; };
 		50E844DB2B8F580A004AE31A /* xeDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xeDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E844DE2B8F580A004AE31A /* xeDemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xeDemoAppApp.swift; sourceTree = "<group>"; };
 		50E844E02B8F580A004AE31A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				50E844EF2B8F580B004AE31A /* xeDemoAppTests.swift */,
+				50A287552B973F6A004C9B13 /* StubData.swift */,
 			);
 			path = xeDemoAppTests;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50E844F02B8F580B004AE31A /* xeDemoAppTests.swift in Sources */,
+				50A287562B973F6A004C9B13 /* StubData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
