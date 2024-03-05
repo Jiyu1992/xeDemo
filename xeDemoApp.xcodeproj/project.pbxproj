@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		500EAA7F2B8FA901000192B1 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500EAA7E2B8FA901000192B1 /* LocationModel.swift */; };
+		500EAA7F2B8FA901000192B1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500EAA7E2B8FA901000192B1 /* Location.swift */; };
 		500EAA812B8FA9D8000192B1 /* CacheObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500EAA802B8FA9D8000192B1 /* CacheObject.swift */; };
 		500EAA832B8FAC1F000192B1 /* NSCache+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500EAA822B8FAC1F000192B1 /* NSCache+Subscript.swift */; };
 		500EAA852B8FBCAD000192B1 /* LocationsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500EAA842B8FBCAD000192B1 /* LocationsProvider.swift */; };
 		50741D5E2B9602C7001BBFC0 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50741D5D2B9602C7001BBFC0 /* FormData.swift */; };
 		50A287562B973F6A004C9B13 /* StubData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A287552B973F6A004C9B13 /* StubData.swift */; };
+		50A287582B97C209004C9B13 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A287572B97C209004C9B13 /* Constants.swift */; };
+		50A2875A2B97C499004C9B13 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A287592B97C499004C9B13 /* APIError.swift */; };
 		50E844DF2B8F580A004AE31A /* xeDemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E844DE2B8F580A004AE31A /* xeDemoAppApp.swift */; };
 		50E844E12B8F580A004AE31A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E844E02B8F580A004AE31A /* ContentView.swift */; };
 		50E844E32B8F580B004AE31A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50E844E22B8F580B004AE31A /* Assets.xcassets */; };
@@ -44,12 +46,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		500EAA7E2B8FA901000192B1 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		500EAA7E2B8FA901000192B1 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		500EAA802B8FA9D8000192B1 /* CacheObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheObject.swift; sourceTree = "<group>"; };
 		500EAA822B8FAC1F000192B1 /* NSCache+Subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCache+Subscript.swift"; sourceTree = "<group>"; };
 		500EAA842B8FBCAD000192B1 /* LocationsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsProvider.swift; sourceTree = "<group>"; };
 		50741D5D2B9602C7001BBFC0 /* FormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
 		50A287552B973F6A004C9B13 /* StubData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubData.swift; sourceTree = "<group>"; };
+		50A287572B97C209004C9B13 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		50A287592B97C499004C9B13 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		50E844DB2B8F580A004AE31A /* xeDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xeDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E844DE2B8F580A004AE31A /* xeDemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xeDemoAppApp.swift; sourceTree = "<group>"; };
 		50E844E02B8F580A004AE31A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,7 +98,7 @@
 		500EAA7D2B8FA879000192B1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				500EAA7E2B8FA901000192B1 /* LocationModel.swift */,
+				500EAA7E2B8FA901000192B1 /* Location.swift */,
 				500EAA842B8FBCAD000192B1 /* LocationsProvider.swift */,
 				50741D5D2B9602C7001BBFC0 /* FormData.swift */,
 			);
@@ -177,6 +181,8 @@
 				50E845122B8F7581004AE31A /* EndpointProvider.swift */,
 				500EAA802B8FA9D8000192B1 /* CacheObject.swift */,
 				500EAA822B8FAC1F000192B1 /* NSCache+Subscript.swift */,
+				50A287572B97C209004C9B13 /* Constants.swift */,
+				50A287592B97C499004C9B13 /* APIError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -318,10 +324,12 @@
 				50741D5E2B9602C7001BBFC0 /* FormData.swift in Sources */,
 				50E8450C2B8F68D8004AE31A /* CustomSubView.swift in Sources */,
 				50E8450F2B8F7021004AE31A /* APIClient.swift in Sources */,
-				500EAA7F2B8FA901000192B1 /* LocationModel.swift in Sources */,
+				500EAA7F2B8FA901000192B1 /* Location.swift in Sources */,
 				500EAA852B8FBCAD000192B1 /* LocationsProvider.swift in Sources */,
 				50E844DF2B8F580A004AE31A /* xeDemoAppApp.swift in Sources */,
 				500EAA812B8FA9D8000192B1 /* CacheObject.swift in Sources */,
+				50A287582B97C209004C9B13 /* Constants.swift in Sources */,
+				50A2875A2B97C499004C9B13 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

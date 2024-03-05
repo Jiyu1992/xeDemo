@@ -9,6 +9,7 @@ import Foundation
 
 protocol ApiProtocol {
     func makeRequest<T: Decodable>(endpoint: EndpointProvider, responseModel: T.Type) async throws -> T?
+    func getLocations(for query: String) async throws -> [Location]?
 }
 
 final class ApiClient: ApiProtocol {
@@ -20,33 +21,27 @@ final class ApiClient: ApiProtocol {
     }
     
     func makeRequest<T: Decodable>(endpoint: EndpointProvider, responseModel: T.Type) async throws -> T? {
-        do {
-            let (data, response) = try await session.data(for: endpoint.asURLRequest())
-            return try self.manageResponse(data: data, response: response)
-        } catch let error {
-            throw error
-        }
-    }
-    
-    private func manageResponse<T: Decodable>(data: Data, response: URLResponse) throws -> T? {
+        let (data, response) = try await session.data(for: endpoint.asURLRequest())
         guard let response = response as? HTTPURLResponse else {
-            return nil
+            throw ApiError.invalidResponse
         }
         switch response.statusCode {
         case 200...299:
             do {
                 return try JSONDecoder().decode(T.self, from: data)
             } catch {
-                throw error
+                throw ApiError.decodingError
             }
         default:
-            return nil
+            throw ApiError.invalidStatusCode(response.statusCode)
         }
     }
     
-    func getLocations(for query: String) async throws -> [LocationModel]? {
+    func getLocations(for query: String) async throws -> [Location]? {
         let endpoint = Endpoints.getLocations(query: query)
-        guard let url = endpoint.asURL() else { return [] }
+        guard let url = endpoint.asURL() else {
+            throw ApiError.invalidURL
+        }
         if let cached = locationCache[url] {
             switch cached {
             case .ready(let locations):
@@ -55,8 +50,8 @@ final class ApiClient: ApiProtocol {
                 return try await task.value
             }
         }
-        let task = Task<[LocationModel], Error> {
-            let locations = try await makeRequest(endpoint: endpoint, responseModel: [LocationModel].self)
+        let task = Task<[Location], Error> {
+            let locations = try await makeRequest(endpoint: endpoint, responseModel: [Location].self)
             return locations ?? []
         }
         locationCache[url] = .inProgress(task)

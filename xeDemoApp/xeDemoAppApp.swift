@@ -9,7 +9,13 @@ import SwiftUI
 
 @main
 struct xeDemoAppApp: App {
-    @StateObject private var locationProvider = LocationsProvider()
+    private let apiClient: ApiClient
+    private let locationProvider: LocationsProvider
+    
+    init() {
+        self.apiClient = ApiClient()
+        self.locationProvider = LocationsProvider(apiClient: apiClient)
+    }
     
     var body: some Scene {
         WindowGroup {

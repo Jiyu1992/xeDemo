@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LocationModel: Decodable, Identifiable {
+struct Location: Decodable, Identifiable {
     
     let placeID, mainText, secondaryText: String
 //  Identifiable conformance

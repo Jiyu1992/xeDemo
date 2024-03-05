@@ -11,10 +11,6 @@ enum RequestMethod: String {
     case get = "GET"
 }
 
-struct Constants{
-    static let baseURL = "4ulq3vb3dogn4fatjw3uq7kqby0dweob.lambda-url.eu-central-1.on.aws"
-}
-
 protocol EndpointProvider {
     var scheme: String { get }
     var baseURL: String { get }

@@ -4,7 +4,7 @@
 //
 //  Created by user256596 on 2/28/24.
 //
-// This is a very minimal ViewModel. In practice Apple and the communitty in general seems to steer away from the MVVM pattern.
+// This is a minimal ViewModel. In practice Apple and the communitty in general seems to steer away from the MVVM pattern.
 // In my personal experience trying to "shoehorn" MVVM in SwiftUI when the framework itself provides almost everything (with property wrappers, binding etc) is a bit counter-intuitive.
 // For example the code below could be ommited as a whole and we could implement an async getter for the LocationModel.
 // Then we could simply ask for all elements of the struct in the View layer with something like this:
@@ -29,16 +29,25 @@ import Foundation
 
 @MainActor
 class LocationsProvider: ObservableObject {
+    private let apiClient: ApiProtocol
     
-    @Published var locations: [LocationModel] = []
-    
-    private let apiClient: ApiClient
-    
-    init(apiClient: ApiClient = ApiClient()) {
+    init(apiClient: ApiProtocol) {
         self.apiClient = apiClient
     }
     
-    func getLocations(for query: String) async throws -> [LocationModel]? {
-        return try await apiClient.getLocations(for: query)
+    func getLocations(for query: String) async -> [Location]? {
+        do {
+            guard query.count > 3 else {
+                return []
+            }
+            return try await apiClient.getLocations(for: query)
+        } catch let error {
+            print("apiClient failed to retrieve locations with error: \(error)")
+            return []
+        }
+    }
+    
+    func determineSubmitReady(locationSelected: Bool, title: String) -> Bool {
+        return locationSelected && !title.isEmpty
     }
 }

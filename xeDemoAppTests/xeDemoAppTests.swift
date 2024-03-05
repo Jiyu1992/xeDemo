@@ -12,24 +12,47 @@ import SwiftUI
 final class xeDemoAppTests: XCTestCase {
     func testClientDoesFetchAndDecodeData() async throws {
         let apiClient = mockAPIClient()
-        let locations = try await apiClient.makeRequest(endpoint: Endpoints.getLocations(query: ""), responseModel: [LocationModel].self)
+        let locations = try await apiClient.makeRequest(endpoint: Endpoints.getLocations(query: ""), responseModel: [Location].self)
         XCTAssertEqual(locations?.count, 2)
+        XCTAssertEqual(locations?[0].mainText, "Nafplio")
     }
     
-//  Here we can observe the drawbacks of foregoing MVVM. Testing the logic is kind of tricky because we moved it to the View layer.
-//  Considering the size and scope of this app this is completely fine but in a larger scale app we either follow the MVVM pattern
-//  and test the ViewModel OR we use a more SwiftUI-friendly architecture like TCA
-    @MainActor
+    @MainActor 
     func testSubmitButtonIsDeactivatedInInitialState() {
-//      As we manipulate the state variables INSIDE our View (instead of observing a VM or executing Actions of a Reducer in the TCA architecture)
-//      the code below represents the initial state of our App and we can NOT influence it directly
-        let view =  ContentView(locationProvider: LocationsProvider(apiClient: ApiClient()))
-        XCTAssertFalse(view.isLocationSelected && !view.formData.title.isEmpty)
+        let apiClient = mockAPIClient()
+        let provider = LocationsProvider(apiClient: apiClient)
+        XCTAssertFalse(provider.determineSubmitReady(locationSelected: false, title: ""))
+    }
+    
+    @MainActor
+    func testSubmitButtonIsDeactivatedWithEmptyTitle() {
+        let apiClient = mockAPIClient()
+        let provider = LocationsProvider(apiClient: apiClient)
+        XCTAssertFalse(provider.determineSubmitReady(locationSelected: true, title: ""))
+    }
+    
+    @MainActor
+    func testSubmitButtonIsDeactivatedWithNoLocationSelected() {
+        let apiClient = mockAPIClient()
+        let provider = LocationsProvider(apiClient: apiClient)
+        XCTAssertFalse(provider.determineSubmitReady(locationSelected: false, title: "Patra"))
+    }
+    
+    @MainActor
+    func testSubmitButtonIsActivatedWithProperParameters() {
+        let apiClient = mockAPIClient()
+        let provider = LocationsProvider(apiClient: apiClient)
+        XCTAssert(provider.determineSubmitReady(locationSelected: true, title: "Patra"))
     }
 
 }
 
 class mockAPIClient: ApiProtocol {
+    func getLocations(for query: String) async throws -> [Location]? {
+        try? await Task.sleep(nanoseconds: 3000)
+        return try JSONDecoder().decode([Location].self, from: stubData)
+    }
+    
     func makeRequest<T>(endpoint: xeDemoApp.EndpointProvider, responseModel: T.Type) async throws -> T? where T : Decodable {
         try? await Task.sleep(nanoseconds: 3000)
         return try JSONDecoder().decode(T.self, from: stubData)

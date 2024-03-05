@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var formData: FormData = FormData()
     @StateObject var locationProvider: LocationsProvider
-    @State var locations: [LocationModel] = []
+    @State var locations: [Location] = []
     @State var isLocationSelected: Bool = false
     @State var presentJSON: Bool = false
     
@@ -25,7 +25,7 @@ struct ContentView: View {
                             if formData.location.count > 3 && !isLocationSelected {
                                 isLocationSelected = false
                                 Task {
-                                    locations = try await locationProvider.getLocations(for: formData.location) ?? []
+                                    locations =  await locationProvider.getLocations(for: formData.location) ?? []
                                 }
                             }
                             if formData.location.count < 3 {
@@ -56,7 +56,7 @@ struct ContentView: View {
                             presentJSON = true
                         },
                          color: .green,
-                        enabled: isLocationSelected && !formData.title.isEmpty
+                        enabled: locationProvider.determineSubmitReady(locationSelected: isLocationSelected, title: formData.title)
                     )
                     .alert("\(formatJson())", isPresented: $presentJSON) {
                         Button("Done", role: .cancel) {
