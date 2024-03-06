@@ -1,0 +1,24 @@
+In this project you will find the solution to your code challenge.
+
+			------Views------
+For the main (and only) screen I used a SwiftUI View (ContentView)
+which uses 2 other SwiftUI subviews for the textfield (CustomSubView)
+and the button (CustomButtonView) components respectively.
+
+			-------Networking------
+The networking layer is contained into the Networking group and it contains the APIClient class which
+is our client responsible for making any API calls. In the same group you will find various other files
+which help create the requests with the appropriate parameters. Even though we only use one data model for 
+one API call, we implemented the APIClient to be as extendable as possible using Generics.
+
+			------Models------
+In the models group we have FormData.swift and LocationModel.swift which are the models we are using in the app.
+LocationModel contains the model representing the locations we are fetching through your Autocomplete API and
+FormData the content of the TextFields the user wants to submit.
+The LocationProvider.Swift contains a minimal ViewModel which implements the bussiness logic of the App.
+
+ 		 	-------Tests------ 
+
+In the xeDemoAppTests.swift file you will find some unit tests that cover part of the basic functionality of the app
+( retreiving and decoding data, enabling the submit feature when all the parameters are correct etc)
+
